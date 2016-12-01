@@ -162,26 +162,30 @@ class ConsoleColors
 
     public function outputText($text, $type='', $options=[])
     {
-        switch ($type) {
-            case 'error':
-                $this->setTextFormat('white', 'red', $options);
-                break;
-            case 'info':
-                $this->setTextFormat('green');
-                break;
-            case 'comment':
-                $this->setTextFormat('yellow');
-                break;
-            case 'warning':
-                $this->setTextFormat('black', 'yellow');
-                break;
-            default:
-                $this->setTextFormat('white');
-                break;
+        if(stristr(PHP_OS, 'WIN') === false)
+        {
+            switch ($type) 
+            {
+                case 'error':
+                    $this->setTextFormat('white', 'red', $options);
+                    break;
+                case 'info':
+                    $this->setTextFormat('green');
+                    break;
+                case 'comment':
+                    $this->setTextFormat('yellow');
+                    break;
+                case 'warning':
+                    $this->setTextFormat('black', 'yellow');
+                    break;
+                default:
+                    $this->setTextFormat('white');
+                    break;
+            }
+
+            $text = $this->apply($text);
         }
-
-        $text = $this->apply($text);
-
+        
         echo $text.PHP_EOL;
     }
 
