@@ -10,6 +10,8 @@ define('ROOT_DIR', realpath(__DIR__.'/../'));
 define('DATA_DIR', ROOT_DIR.'/data');
 // 缓存目录
 define('CACHE_DIR', DATA_DIR.'/cache');
+// 日志目录
+define('LOG_DIR', DATA_DIR.'/logs');
 // 公共目录
 define('PUBLIC_DIR', ROOT_DIR.'/public'); 
 // 脚本目录

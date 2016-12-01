@@ -87,3 +87,10 @@ if (! function_exists('value'))
         return $value instanceof Closure ? $value() : $value;
     }
 }
+
+// 判断是否是json数据
+function isValidJson($strJson) { 
+    json_decode($strJson); 
+    return (json_last_error() === JSON_ERROR_NONE); 
+}
+

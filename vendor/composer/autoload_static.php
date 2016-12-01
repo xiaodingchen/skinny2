@@ -23,6 +23,10 @@ class ComposerStaticInita016591b8c510ebcc3f611ab9708a93f
         array (
             'Psr\\Log\\' => 8,
         ),
+        'M' => 
+        array (
+            'Monolog\\' => 8,
+        ),
         'D' => 
         array (
             'DebugBar\\' => 9,
@@ -45,6 +49,10 @@ class ComposerStaticInita016591b8c510ebcc3f611ab9708a93f
         'Psr\\Log\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
+        ),
+        'Monolog\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
         ),
         'DebugBar\\' => 
         array (
