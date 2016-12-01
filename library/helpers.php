@@ -1,5 +1,4 @@
 <?php 
-use Closure;
 
 if (! function_exists('array_get'))
 {
@@ -84,7 +83,7 @@ if (! function_exists('value'))
      */
     function value($value)
     {
-        return $value instanceof Closure ? $value() : $value;
+        return $value instanceof \Closure ? $value() : $value;
     }
 }
 

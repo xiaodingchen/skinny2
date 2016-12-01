@@ -1,2 +1,4 @@
 <?php 
-    return [];
+    return [
+        'Log' => 'Skinny\\Log\\Logger',
+    ];

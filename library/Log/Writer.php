@@ -16,7 +16,7 @@ use Monolog\Handler\ErrorLogHandler;
 use Monolog\Handler\RotatingFileHandler;
 use Psr\Log\LoggerInterface as PsrLoggerInterface;
 
-class lib_log_writer implements PsrLoggerInterface
+class Writer implements PsrLoggerInterface
 {
 
     /**
@@ -185,11 +185,7 @@ class lib_log_writer implements PsrLoggerInterface
      */
     protected function writeLog($level, $message, $context)
     {
-        // 临时逻辑, 弥补console ouput 的缺失
-        if (kernel::runningInConsole())
-        {
-            if ($level !== 'debug') echo $message.PHP_EOL;
-        }
+        
         $this->monolog->{$level}($message, $context);
     }
 
