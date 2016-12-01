@@ -25,7 +25,7 @@ class Help implements CommandInterface {
         $command = $args[0];
         if(! $command)
         {
-            consoleColor::outputText('command list','warning');
+            consoleColor::outputText('command list','comment');
             $command = 'list';
         }
         $commandClassName = $this->_checkCommand($command);

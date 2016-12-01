@@ -1,110 +1,207 @@
 <?php
 
-/**
- * colors.php
- * 
- * 设置输出文本颜色
- * */
 namespace Skinny\Console;
 
-class ConsoleColors {
+class ConsoleColors
+{
 
-    private $foreground_colors = [];
+    private static $availableForegroundColors = [
+        'black'   => ['set' => 30, 'unset' => 39],
+        'red'     => ['set' => 31, 'unset' => 39],
+        'green'   => ['set' => 32, 'unset' => 39],
+        'yellow'  => ['set' => 33, 'unset' => 39],
+        'blue'    => ['set' => 34, 'unset' => 39],
+        'magenta' => ['set' => 35, 'unset' => 39],
+        'cyan'    => ['set' => 36, 'unset' => 39],
+        'white'   => ['set' => 37, 'unset' => 39],
+    ];
+    private static $availableBackgroundColors = [
+        'black'   => ['set' => 40, 'unset' => 49],
+        'red'     => ['set' => 41, 'unset' => 49],
+        'green'   => ['set' => 42, 'unset' => 49],
+        'yellow'  => ['set' => 43, 'unset' => 49],
+        'blue'    => ['set' => 44, 'unset' => 49],
+        'magenta' => ['set' => 45, 'unset' => 49],
+        'cyan'    => ['set' => 46, 'unset' => 49],
+        'white'   => ['set' => 47, 'unset' => 49],
+    ];
+    private static $availableOptions = [
+        'bold'       => ['set' => 1, 'unset' => 22],
+        'underscore' => ['set' => 4, 'unset' => 24],
+        'blink'      => ['set' => 5, 'unset' => 25],
+        'reverse'    => ['set' => 7, 'unset' => 27],
+        'conceal'    => ['set' => 8, 'unset' => 28],
+    ];
 
-    private $background_colors = [];
+    private $foreground;
+    private $background;
+    private $options = [];
 
-    public function __construct()
-    {
-        // Set up shell colors
-        $this->foreground_colors['black'] = '0;30';
-        $this->foreground_colors['dark_gray'] = '1;30';
-        $this->foreground_colors['blue'] = '0;34';
-        $this->foreground_colors['light_blue'] = '1;34';
-        $this->foreground_colors['green'] = '0;32';
-        $this->foreground_colors['light_green'] = '1;32';
-        $this->foreground_colors['cyan'] = '0;36';
-        $this->foreground_colors['light_cyan'] = '1;36';
-        $this->foreground_colors['red'] = '0;31';
-        $this->foreground_colors['light_red'] = '1;31';
-        $this->foreground_colors['purple'] = '0;35';
-        $this->foreground_colors['light_purple'] = '1;35';
-        $this->foreground_colors['brown'] = '0;33';
-        $this->foreground_colors['yellow'] = '1;33';
-        $this->foreground_colors['light_gray'] = '0;37';
-        $this->foreground_colors['white'] = '1;37';
-        
-        $this->background_colors['black'] = '40';
-        $this->background_colors['red'] = '41';
-        $this->background_colors['green'] = '42';
-        $this->background_colors['yellow'] = '43';
-        $this->background_colors['blue'] = '44';
-        $this->background_colors['magenta'] = '45';
-        $this->background_colors['cyan'] = '46';
-        $this->background_colors['light_gray'] = '47';
-    }
-
-    public function getColoredString($string, $foreground_color = null, $background_color = null)
-    {
-        $colored_string = "";
-        
-        // Check if given foreground color found
-        if (isset($this->foreground_colors[$foreground_color]))
-        {
-            $colored_string .= "\033[" . $this->foreground_colors[$foreground_color] . "m";
-        }
-        // Check if given background color found
-        if (isset($this->background_colors[$background_color]))
-        {
-            $colored_string .= "\033[" . $this->background_colors[$background_color] . "m";
-        }
-        
-        // Add string and end coloring
-        $colored_string .= $string . "\033[0m";
-        
-        return $colored_string;
-    }
     
-    // Returns all foreground color names
-    public function getForegroundColors()
+
+    /**
+     * 设置字体颜色
+     * @param string|null $color 颜色名
+     * @throws \InvalidArgumentException
+     * @api
+     */
+    public function setForeground($color = null)
     {
-        return array_keys($this->foreground_colors);
-    }
-    
-    // Returns all background color names
-    public function getBackgroundColors()
-    {
-        return array_keys($this->background_colors);
+        if (null === $color) {
+            $this->foreground = null;
+
+            return;
+        }
+
+        if (!isset(static::$availableForegroundColors[$color])) {
+            throw new \InvalidArgumentException(sprintf('Invalid foreground color specified: "%s". Expected one of (%s)', $color, implode(', ', array_keys(static::$availableForegroundColors))));
+        }
+
+        $this->foreground = static::$availableForegroundColors[$color];
     }
 
-    public function outputText($text, $status='')
+    /**
+     * 设置背景色
+     * @param string|null $color 颜色名
+     * @throws \InvalidArgumentException
+     * @api
+     */
+    public function setBackground($color = null)
     {
-        $out = '';
-        // 兼容windows平台
-        if(stristr(PHP_OS, 'WIN') === FALSE)
-        {
-            switch($status) {
-                case "success":
-                    $out = $this->getColoredString($text, 'green');
-                    break;
-                case "error":
-                    $out = $this->getColoredString($text, 'red');
-                    break;
-                case "warning":
-                    $out = $this->getColoredString($text, 'yellow');
-                    break;
-                case "info":
-                    $out = $this->getColoredString($text, 'light_blue');
-                    break;
-                default:
-                    $out = $this->getColoredString($text, 'white');
+        if (null === $color) {
+            $this->background = null;
+
+            return;
+        }
+
+        if (!isset(static::$availableBackgroundColors[$color])) {
+            throw new \InvalidArgumentException(sprintf('Invalid background color specified: "%s". Expected one of (%s)', $color, implode(', ', array_keys(static::$availableBackgroundColors))));
+        }
+
+        $this->background = static::$availableBackgroundColors[$color];
+    }
+
+    /**
+     * 设置字体格式
+     * @param string $option 格式名
+     * @throws \InvalidArgumentException When the option name isn't defined
+     * @api
+     */
+    public function setOption($option)
+    {
+        if (!isset(static::$availableOptions[$option])) {
+            throw new \InvalidArgumentException(sprintf('Invalid option specified: "%s". Expected one of (%s)', $option, implode(', ', array_keys(static::$availableOptions))));
+        }
+
+        if (!in_array(static::$availableOptions[$option], $this->options)) {
+            $this->options[] = static::$availableOptions[$option];
+        }
+    }
+
+    /**
+     * 重置字体格式
+     * @param string $option 格式名
+     * @throws \InvalidArgumentException
+     */
+    public function unsetOption($option)
+    {
+        if (!isset(static::$availableOptions[$option])) {
+            throw new \InvalidArgumentException(sprintf('Invalid option specified: "%s". Expected one of (%s)', $option, implode(', ', array_keys(static::$availableOptions))));
+        }
+
+        $pos = array_search(static::$availableOptions[$option], $this->options);
+        if (false !== $pos) {
+            unset($this->options[$pos]);
+        }
+    }
+
+    /**
+     * 批量设置字体格式
+     * @param array $options
+     */
+    public function setOptions(array $options)
+    {
+        $this->options = [];
+
+        foreach ($options as $option) {
+            $this->setOption($option);
+        }
+    }
+
+    /**
+     * 应用样式到文字
+     * @param string $text 文字
+     * @return string
+     */
+    public function apply($text)
+    {
+        $setCodes   = [];
+        $unsetCodes = [];
+
+        if (null !== $this->foreground) {
+            $setCodes[]   = $this->foreground['set'];
+            $unsetCodes[] = $this->foreground['unset'];
+        }
+        if (null !== $this->background) {
+            $setCodes[]   = $this->background['set'];
+            $unsetCodes[] = $this->background['unset'];
+        }
+        if (count($this->options)) {
+            foreach ($this->options as $option) {
+                $setCodes[]   = $option['set'];
+                $unsetCodes[] = $option['unset'];
             }
         }
-        else
-        {
-            $out = $text;
+
+        if (0 === count($setCodes)) {
+            return $text;
         }
-        
-        echo $out.PHP_EOL;
+
+        return sprintf("\033[%sm%s\033[%sm", implode(';', $setCodes), $text, implode(';', $unsetCodes));
+    }
+
+    public function outputText($text, $type='', $options=[])
+    {
+        switch ($type) {
+            case 'error':
+                $this->setTextFormat('white', 'red', $options);
+                break;
+            case 'info':
+                $this->setTextFormat('green');
+                break;
+            case 'comment':
+                $this->setTextFormat('yellow');
+                break;
+            case 'warning':
+                $this->setTextFormat('black', 'yellow');
+                break;
+            default:
+                $this->setTextFormat('white');
+                break;
+        }
+
+        $text = $this->apply($text);
+
+        echo $text.PHP_EOL;
+    }
+
+    /**
+     * 初始化输出的样式
+     * @param string|null $foreground 字体颜色
+     * @param string|null $background 背景色
+     * @param array       $options    格式
+     * @api
+     */
+    protected function setTextFormat($foreground = null, $background = null, array $options = [])
+    {
+        if (null !== $foreground) {
+            $this->setForeground($foreground);
+        }
+        if (null !== $background) {
+            $this->setBackground($background);
+        }
+        if (count($options)) {
+            $this->setOptions($options);
+        }
     }
 }
-

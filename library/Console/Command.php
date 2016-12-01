@@ -90,7 +90,7 @@ class Command{
                 // 执行自定义的命令
                 $commandClassName = $this->checkCommand($command);
                 
-                consoleColor::outputText('Scanning local Applications...', 'info');
+                consoleColor::outputText('Scanning local Applications...', 'comment');
                 $commandObj = new $commandClassName();
                 if($commandObj instanceof CommandInterface)
                 {
@@ -169,7 +169,7 @@ class Command{
     
     public function print_welcome()
     {
-        consoleColor::outputText("skinny shell (abort with ^C), Root: ".ROOT_DIR, 'warning');
+        consoleColor::outputText("skinny shell (abort with ^C), Root: ".ROOT_DIR, 'comment');
         
     }
 }

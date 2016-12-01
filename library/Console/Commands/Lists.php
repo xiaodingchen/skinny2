@@ -30,7 +30,7 @@ class Lists implements CommandInterface{
         foreach ($commands as $key => $val)
         {
             $obj = new $val;
-            consoleColor::outputText(str_repeat(' ', 2).str_pad($key, 30).$obj->commandTitle(), 'success');
+            consoleColor::outputText(str_repeat(' ', 2).str_pad($key, 30).$obj->commandTitle());
             
         }
         
