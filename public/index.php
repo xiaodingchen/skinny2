@@ -1,3 +1,4 @@
 <?php
 
-	require __DIR__.'/../bootstrap/start.php';
+require __DIR__.'/../bootstrap/start.php';
+

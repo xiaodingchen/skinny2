@@ -16,6 +16,8 @@ define('PUBLIC_DIR', ROOT_DIR.'/public');
 define('SCRIPT_DIR', ROOT_DIR.'/script');
 // 应用程序模块目录
 define('APP_DIR', ROOT_DIR.'/app');
+// 配置目录
+define('CONF_DIR', ROOT_DIR.'/config');
 // 框架核心类库
 define('LIB_DIR', ROOT_DIR.'/library');
 // 配置文件目录
