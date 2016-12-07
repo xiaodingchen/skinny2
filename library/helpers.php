@@ -93,3 +93,24 @@ function isValidJson($strJson) {
     return (json_last_error() === JSON_ERROR_NONE); 
 }
 
+if (! function_exists('ends_with'))
+{
+
+    /**
+     * Determine if a given string ends with a given substring.
+     *
+     * @param string $haystack
+     * @param string|array $needles
+     * @return bool
+     */
+    function ends_with($haystack, $needles)
+    {
+        foreach ((array) $needles as $needle)
+        {
+            if ($needle == substr($haystack, - strlen($needle))) return true;
+        }
+        
+        return false;
+    }
+}
+

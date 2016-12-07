@@ -81,12 +81,16 @@ class Command{
         if ($command == '')
         {
             echo "please input command";
-        }else{
+        }
+        else
+        {
             // 如果输入的命令以;号结尾，那就作为php执行
             if(substr($command, -1, 1) == ';')
             {
                 $this->phpCall($command);
-            }else{
+            }
+            else
+            {
                 // 执行自定义的命令
                 $commandClassName = $this->checkCommand($command);
                 
@@ -145,8 +149,10 @@ class Command{
     public function output()
     {
         $args = func_get_args();
-        foreach($args as $data){
-            switch(gettype($data)){
+        foreach($args as $data)
+        {
+            switch(gettype($data))
+            {
                 case 'object':
                     echo 'Object<'.get_class($data).">\n";
                     break;

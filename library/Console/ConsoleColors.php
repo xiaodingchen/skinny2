@@ -162,7 +162,7 @@ class ConsoleColors
 
     public function outputText($text, $type='', $options=[])
     {
-        if(stristr(PHP_OS, 'WIN') === false)
+        if(stristr(PHP_OS, 'Windows') === FALSE)
         {
             switch ($type) 
             {
