@@ -9,4 +9,5 @@ return array(
     '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => $vendorDir . '/symfony/polyfill-mbstring/bootstrap.php',
     '667aeda72477189d0494fecd327c3641' => $vendorDir . '/symfony/var-dumper/Resources/functions/dump.php',
     'c1c8eaf494954d6a8b4cc9517d208f08' => $baseDir . '/library/helpers.php',
+    '60d14df7e0f834f716865ec1d352a639' => $baseDir . '/app/base/helpers.php',
 );

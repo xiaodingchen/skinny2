@@ -6,6 +6,10 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'CredisException' => $vendorDir . '/colinmollenhour/credis/Client.php',
+    'Credis_Client' => $vendorDir . '/colinmollenhour/credis/Client.php',
+    'Credis_Cluster' => $vendorDir . '/colinmollenhour/credis/Cluster.php',
+    'Credis_Sentinel' => $vendorDir . '/colinmollenhour/credis/Sentinel.php',
     'File_Iterator' => $vendorDir . '/phpunit/php-file-iterator/src/Iterator.php',
     'File_Iterator_Facade' => $vendorDir . '/phpunit/php-file-iterator/src/Facade.php',
     'File_Iterator_Factory' => $vendorDir . '/phpunit/php-file-iterator/src/Factory.php',

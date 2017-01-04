@@ -4,9 +4,9 @@
  * exceptionHandler.php
  * 
  * */
-namespace Skinny\Exceptions;
+namespace Skinny\Exceptions\Contracts;
 use Exception;
-interface ExceptionHandler {
+interface ExceptionInterface {
     /**
      * Report or log an exception.
      *

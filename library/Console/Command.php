@@ -134,8 +134,8 @@ class Command{
     public function getDefaultDefineCommand()
     {
         return [
-            'help'=>'Skinny\\Console\\Commands\\Help',
-            'list'=>'Skinny\\Console\\Commands\\Lists',
+            'help' => \Skinny\Console\Commands\Help::class,
+            'list' => \Skinny\Console\Commands\Lists::class,
         ];
     }
     

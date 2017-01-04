@@ -120,13 +120,8 @@ class Schema
         if($objFile->exists($file))
         {
             $data = $objFile->getRequire($file);
-            $createFileTime = $data['create_file_time'];
-            if(($createFileTime+self::CACHE_TIME) > time())
-            {
-                unset($data['create_file_time']);
-
-                return $data;
-            }
+            
+            return $data;
         }
 
         return false;
@@ -137,7 +132,6 @@ class Schema
 
         $str = '<?php return %s;';
 
-        $schema['create_file_time'] = time();
         $arrStr = var_export($schema, true);
         $str = sprintf($str, $arrStr);
         $file = $this->_getFilePath($md5);

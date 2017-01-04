@@ -10,6 +10,7 @@ class ComposerStaticInita016591b8c510ebcc3f611ab9708a93f
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
         'c1c8eaf494954d6a8b4cc9517d208f08' => __DIR__ . '/../..' . '/library/helpers.php',
+        '60d14df7e0f834f716865ec1d352a639' => __DIR__ . '/../..' . '/app/base/helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -26,7 +27,11 @@ class ComposerStaticInita016591b8c510ebcc3f611ab9708a93f
             'Symfony\\Polyfill\\Mbstring\\' => 26,
             'Symfony\\Component\\Yaml\\' => 23,
             'Symfony\\Component\\VarDumper\\' => 28,
+            'Symfony\\Component\\HttpKernel\\' => 29,
+            'Symfony\\Component\\HttpFoundation\\' => 33,
             'Symfony\\Component\\Finder\\' => 25,
+            'Symfony\\Component\\EventDispatcher\\' => 34,
+            'Symfony\\Component\\Debug\\' => 24,
         ),
         'P' => 
         array (
@@ -70,9 +75,25 @@ class ComposerStaticInita016591b8c510ebcc3f611ab9708a93f
         array (
             0 => __DIR__ . '/..' . '/symfony/var-dumper',
         ),
+        'Symfony\\Component\\HttpKernel\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/http-kernel',
+        ),
+        'Symfony\\Component\\HttpFoundation\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/http-foundation',
+        ),
         'Symfony\\Component\\Finder\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/finder',
+        ),
+        'Symfony\\Component\\EventDispatcher\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/event-dispatcher',
+        ),
+        'Symfony\\Component\\Debug\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/debug',
         ),
         'Psr\\Log\\' => 
         array (
@@ -145,6 +166,10 @@ class ComposerStaticInita016591b8c510ebcc3f611ab9708a93f
     );
 
     public static $classMap = array (
+        'CredisException' => __DIR__ . '/..' . '/colinmollenhour/credis/Client.php',
+        'Credis_Client' => __DIR__ . '/..' . '/colinmollenhour/credis/Client.php',
+        'Credis_Cluster' => __DIR__ . '/..' . '/colinmollenhour/credis/Cluster.php',
+        'Credis_Sentinel' => __DIR__ . '/..' . '/colinmollenhour/credis/Sentinel.php',
         'File_Iterator' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Iterator.php',
         'File_Iterator_Facade' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Facade.php',
         'File_Iterator_Factory' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Factory.php',
