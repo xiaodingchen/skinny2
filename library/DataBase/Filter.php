@@ -95,7 +95,7 @@ class Filter
                 break;
             case 'in':
                 $filterValue = (array)$filterValue;
-                if (empty($filterValue)) throw new InvalidArgumentException("filter column:{$columnName} in type, cannot empty");
+                if (empty($filterValue)) throw new \InvalidArgumentException("filter column:{$columnName} in type, cannot empty");
                 array_walk($filterValue, function(&$value) use ($qb) {
                     $value = $qb->getConnection()->quote($value);
                 });
