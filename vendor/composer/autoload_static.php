@@ -4,15 +4,11 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInita016591b8c510ebcc3f611ab9708a93f
+class ComposerStaticInit250934191030b991cd34558340239729
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
-        'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
-        'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
-        '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
-        '9e090711773bfc38738f5dbaee5a7f14' => __DIR__ . '/..' . '/overtrue/wechat/src/Payment/helpers.php',
         'f084d01b0a599f67676cffef638aa95b' => __DIR__ . '/..' . '/smarty/smarty/libs/bootstrap.php',
         'c1c8eaf494954d6a8b4cc9517d208f08' => __DIR__ . '/../..' . '/library/helpers.php',
         '425fca9d3ae2e6841f127863bf18c86c' => __DIR__ . '/../..' . '/app/base/helper.php',
@@ -26,35 +22,20 @@ class ComposerStaticInita016591b8c510ebcc3f611ab9708a93f
         'S' => 
         array (
             'Symfony\\Polyfill\\Mbstring\\' => 26,
+            'Symfony\\Component\\Routing\\' => 26,
             'Symfony\\Component\\Process\\' => 26,
             'Symfony\\Component\\HttpFoundation\\' => 33,
             'Symfony\\Component\\Finder\\' => 25,
-            'Symfony\\Bridge\\PsrHttpMessage\\' => 30,
             'Skinny\\' => 7,
         ),
         'P' => 
         array (
             'Psr\\Log\\' => 8,
-            'Psr\\Http\\Message\\' => 17,
             'Patchwork\\' => 10,
-        ),
-        'O' => 
-        array (
-            'Overtrue\\Socialite\\' => 19,
         ),
         'M' => 
         array (
             'Monolog\\' => 8,
-        ),
-        'G' => 
-        array (
-            'GuzzleHttp\\Psr7\\' => 16,
-            'GuzzleHttp\\Promise\\' => 19,
-            'GuzzleHttp\\' => 11,
-        ),
-        'E' => 
-        array (
-            'EasyWeChat\\' => 11,
         ),
         'D' => 
         array (
@@ -77,6 +58,10 @@ class ComposerStaticInita016591b8c510ebcc3f611ab9708a93f
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
         ),
+        'Symfony\\Component\\Routing\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/routing',
+        ),
         'Symfony\\Component\\Process\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/process',
@@ -89,10 +74,6 @@ class ComposerStaticInita016591b8c510ebcc3f611ab9708a93f
         array (
             0 => __DIR__ . '/..' . '/symfony/finder',
         ),
-        'Symfony\\Bridge\\PsrHttpMessage\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/symfony/psr-http-message-bridge',
-        ),
         'Skinny\\' => 
         array (
             0 => __DIR__ . '/../..' . '/library',
@@ -101,37 +82,13 @@ class ComposerStaticInita016591b8c510ebcc3f611ab9708a93f
         array (
             0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
         ),
-        'Psr\\Http\\Message\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
-        ),
         'Patchwork\\' => 
         array (
             0 => __DIR__ . '/..' . '/patchwork/utf8/src/Patchwork',
         ),
-        'Overtrue\\Socialite\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/overtrue/socialite/src',
-        ),
         'Monolog\\' => 
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
-        ),
-        'GuzzleHttp\\Psr7\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
-        ),
-        'GuzzleHttp\\Promise\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/guzzlehttp/promises/src',
-        ),
-        'GuzzleHttp\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/guzzlehttp/guzzle/src',
-        ),
-        'EasyWeChat\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/overtrue/wechat/src',
         ),
         'Doctrine\\Common\\Cache\\' => 
         array (
@@ -152,13 +109,6 @@ class ComposerStaticInita016591b8c510ebcc3f611ab9708a93f
     );
 
     public static $prefixesPsr0 = array (
-        'P' => 
-        array (
-            'Pimple' => 
-            array (
-                0 => __DIR__ . '/..' . '/pimple/pimple/src',
-            ),
-        ),
         'D' => 
         array (
             'Doctrine\\DBAL\\' => 
@@ -187,10 +137,10 @@ class ComposerStaticInita016591b8c510ebcc3f611ab9708a93f
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInita016591b8c510ebcc3f611ab9708a93f::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInita016591b8c510ebcc3f611ab9708a93f::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInita016591b8c510ebcc3f611ab9708a93f::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInita016591b8c510ebcc3f611ab9708a93f::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit250934191030b991cd34558340239729::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit250934191030b991cd34558340239729::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit250934191030b991cd34558340239729::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit250934191030b991cd34558340239729::$classMap;
 
         }, null, ClassLoader::class);
     }

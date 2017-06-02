@@ -1,5 +1,0 @@
-#!/usr/bin/env php
-<?php
-    require __DIR__.'/bootstrap/start.php';
-    $cmd = new \Skinny\Console\Command();
-    $cmd->run();
