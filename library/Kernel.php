@@ -3,6 +3,7 @@ namespace Skinny;
 
 use Skinny\Exceptions\HandleExceptions;
 use Skinny\Exceptions\ExceptionInterface;
+use Skinny\Routing\Route;
 
 class Kernel
 {
@@ -29,8 +30,20 @@ class Kernel
         static::$__exception_instance->bootstrap();
     }
 
+    // 设置错误处理handler
     public static function setExceptionHandler(ExceptionInterface $handler)
     {
         static::$__exception_instance ->setExceptionHandler($handler);
     }
+
+    public static function boot()
+    {
+        // 设置异常处理
+        self::startExceptionHandling();
+        // 处理路由
+        if(! self::runningInConsole())
+        {
+            Route::init();
+        }
+    } 
 }
