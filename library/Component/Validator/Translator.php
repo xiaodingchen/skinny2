@@ -1,6 +1,6 @@
 <?php 
 
-namespace Skinny\Tools\Validator;
+namespace Skinny\Component\Validator;
 
 use Skinny\Component\Config as config;
 

@@ -1,11 +1,11 @@
 <?php
 
-namespace Skinny\Tools\Validator;
+namespace Skinny\Component\Validator;
 
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
-use Skinny\Tools\Validator\Translator;
-use Skinny\Tools\Validator\MessageBag;
+use Skinny\Component\Validator\Translator;
+use Skinny\Component\Validator\MessageBag;
 
 class Validator
 {

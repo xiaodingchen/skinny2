@@ -1,8 +1,8 @@
 <?php
 
-namespace Skinny\Tools;
+namespace Skinny\Component;
 
-use Skinny\Tools\Validator\Validator as Valid;
+use Skinny\Component\Validator\Validator as Valid;
 
 class Validator {
 

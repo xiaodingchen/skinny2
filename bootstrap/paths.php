@@ -17,7 +17,7 @@ define('PUBLIC_DIR', ROOT_DIR.'/public');
 // 模板主题目录
 define('THEME_DIR', ROOT_DIR.'/theme'); 
 // 静态文件目录
-define('STATIC_DIR', '/static'); 
+define('STATIC_DIR', PUBLIC_DIR . '/static'); 
 // 脚本目录
 define('SCRIPT_DIR', ROOT_DIR.'/script');
 // 应用程序模块目录
@@ -34,3 +34,5 @@ define('BOOT_DIR', ROOT_DIR.'/bootstrap');
 define('TMP_DIR', sys_get_temp_dir());
 // 插件目录
 define('PLUGINS_DIR', ROOT_DIR.'/plugins');
+// 公共附件目录
+define('ATTACHMENT_DIR', PUBLIC_DIR . '/attachment');

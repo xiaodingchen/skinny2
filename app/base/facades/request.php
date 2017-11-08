@@ -1,7 +1,7 @@
 <?php 
 namespace App\base\facades;
 
-use App\base\service\request as HttpRequest;
+use Skinny\Http\Request as HttpRequest;
 use Skinny\Facades\Facade;
 use Skinny\Kernel;
 

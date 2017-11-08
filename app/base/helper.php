@@ -17,6 +17,13 @@ function baseUrl()
     return $baseUrl;
 }
 
+function staticUrl()
+{
+    $baseurl = baseUrl();
+
+    return $baseurl . '/' . trim(str_replace(PUBLIC_DIR, '', STATIC_DIR), '/') . '/';
+}
+
 function url($action, array $params = [])
 {
     $arr = explode('_', $action);
